@@ -1,0 +1,34 @@
+import React from 'react'
+import { createBrowserRouter } from 'react-router-dom'
+import Main from '../Layouts/Main'
+import Home from '../Pages/Home'
+import Login from '../Pages/LoginRegister/Login'
+import Register from '../Pages/LoginRegister/Register'
+import Rooms from '../Components/Rooms'
+
+const Routers = createBrowserRouter([
+    {
+        path: '/',
+        element: <Main />,
+        children: [
+            {
+                index: true,
+                element: <Home />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+            // {
+            //     path: '/rooms',
+            //     element: <Rooms />
+            // }
+        ]
+    }
+])
+
+export default Routers

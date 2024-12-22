@@ -9,7 +9,12 @@ import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-import slidPic1 from '../assets/images/coursel-1.webp'
+import slidPic1 from '../assets/images/coursel-1.jpg'
+import slidPic2 from '../assets/images/coursel-2.webp'
+import slidPic3 from '../assets/images/coursel-3.webp'
+import slidPic4 from '../assets/images/coursel-4.jpg'
+import slidPic5 from '../assets/images/coursel-5.jpg'
+import slidPic6 from '../assets/images/coursel-6.webp'
 import SlideOfSlider from './SlideOfSlider';
 
 const Slider = () => {
@@ -36,32 +41,29 @@ const Slider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <SlideOfSlider
-                        image={slidPic1}
-                        text="Best Room in town" />
+                        image={slidPic2}
+                        text="Always expecting the best room" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <SlideOfSlider
-                        image={slidPic1}
-                        text="Best Room in town" />
+                        image={slidPic3}
+                        text="Expecting requests to be guaranteed" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <SlideOfSlider
-                        image={slidPic1}
-                        text="Best Room in town" />
+                        image={slidPic4}
+                        text="Using incorrect arrival and departure dates" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <SlideOfSlider
-                        image={slidPic1}
-                        text="Best Room in town" />
+                        image={slidPic5}
+                        text="Not using a credit card" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <SlideOfSlider
-                        image={slidPic1}
-                        text="Best Room in town" />
+                        image={slidPic6}
+                        text="Making reservations for the wrong hotel" />
                 </SwiperSlide>
-                {/* <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide> */}
             </Swiper>
         </div>
     )

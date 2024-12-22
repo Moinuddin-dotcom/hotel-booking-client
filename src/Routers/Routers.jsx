@@ -5,6 +5,8 @@ import Home from '../Pages/Home'
 import Login from '../Pages/LoginRegister/Login'
 import Register from '../Pages/LoginRegister/Register'
 import Rooms from '../Components/Rooms'
+import MyBookings from '../Components/MyBookings'
+import SecureRouter from './SecureRouter'
 
 const Routers = createBrowserRouter([
     {
@@ -23,10 +25,17 @@ const Routers = createBrowserRouter([
                 path: '/register',
                 element: <Register />
             },
-            // {
-            //     path: '/rooms',
-            //     element: <Rooms />
-            // }
+            {
+                path: '/rooms',
+                element: <Rooms />
+            },
+            {
+                path: '/my-bookings',
+                element:
+                    <SecureRouter>
+                        <MyBookings />
+                    </SecureRouter>
+            },
         ]
     }
 ])

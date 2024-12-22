@@ -6,8 +6,8 @@ const Navbar = () => {
     const { user, logOut } = useAuth()
     // console.log(user)
     const navLinks = <>
-        <NavLink to={true}>Rooms</NavLink>
-        <NavLink>My Bookings</NavLink>
+        <NavLink to={"/rooms"}>Rooms</NavLink>
+        <NavLink to={"/my-bookings"}>My Bookings</NavLink>
     </>
     const logoLink = <>
         <Link to={"/"} className="btn btn-ghost text-xl">daisyUI</Link>

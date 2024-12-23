@@ -9,7 +9,7 @@ const Rooms = () => {
         const response = await fetch('http://localhost:8001/rooms')
         const data = await response.json()
         setRooms(data)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {

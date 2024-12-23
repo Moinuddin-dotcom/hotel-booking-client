@@ -5,10 +5,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import useAuth from '../Hooks/useAuth';
 
 const RoomsCard = () => {
     const { id } = useParams()
-    // console.log(id)
+    const { user } = useAuth()
+    // console.log(user)
     const [rooms, setRooms] = useState({})
     const [soldRoom, setSoldRoom] = useState(0);
     const [startDate, setStartDate] = useState(new Date())
@@ -32,7 +34,8 @@ const RoomsCard = () => {
     }, []);
 
     const { room_type, adults, roomsLeft, originalPrice,
-        discountedPrice, totalPrice, image, package_name, package_price
+        discountedPrice, totalPrice, image, package_name, package_price,
+
     } = rooms || {}
 
     const reviewFrom = async (e) => {
@@ -53,14 +56,18 @@ const RoomsCard = () => {
         setreview(false, data)
     }
 
-    const handleDates = async (e) => {
+    const handleModalFrom = async (e) => {
         e.preventDefault()
-        // {format(new Date(deadline), 'P')}
+        const rommImage = image
+        const roomType = room_type
         const checkIn = startDate
         const checkOut = endDate
         const price = totalPrice
+        const userName = user?.displayName
+        const userEmail = user?.email
         // const roomsLeft = roomsLeft
-        console.log({ checkIn, checkOut, price })
+        const modalData = { rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
+        console.log(modalData)
         document.getElementById('my_modal_5').close();
 
         // Check if room is available
@@ -71,6 +78,23 @@ const RoomsCard = () => {
         const updatedRoomsLeft = soldRoom - 1;
         setSoldRoom(updatedRoomsLeft);
 
+        // fetch for booking hotel information added by user email
+        // const bookingData = { roomType, checkIn, checkOut, price, userName, userEmail }
+        const response = await fetch(`http://localhost:8001/bookedHotel`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(modalData)
+        })
+        const bookingDataRes = await response.json()
+        console.log(bookingDataRes)
+
+
+
+
+
+        // fetch for room left 
         const res = await fetch(`http://localhost:8001/rooms/${id}`, {
             method: 'PUT',
             headers: {
@@ -222,7 +246,10 @@ const RoomsCard = () => {
                                 </p>
                             </div>
                         </form>
-                        <button onClick={() => document.getElementById('my_modal_5').showModal()} className="btn btn-primary mt-5" >Book Now</button>
+                        <div className='text-center mb-2'>
+
+                            <button onClick={() => document.getElementById('my_modal_5').showModal()} className="btn btn-wide btn-primary mt-5" >Book Now</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -231,7 +258,7 @@ const RoomsCard = () => {
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <form onSubmit={handleDates} method="dialog">
+                    <form onSubmit={handleModalFrom} method="dialog">
                         <div>
                             <label className='text-gray-700'> Check-In:</label>
                             {/* Date Picker Input Field */}

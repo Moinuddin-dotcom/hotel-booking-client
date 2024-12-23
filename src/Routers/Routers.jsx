@@ -35,7 +35,7 @@ const Routers = createBrowserRouter([
                 element:
                     <SecureRouter>
                         <MyBookings />
-                    </SecureRouter>
+                    </SecureRouter>,
             },
             {
                 path: '/roomsCard/:id',

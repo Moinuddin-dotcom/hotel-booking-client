@@ -33,7 +33,7 @@ const RoomsCard = () => {
 
     }, []);
 
-    const { room_type, adults, roomsLeft, originalPrice,
+    const { _id,room_type, adults, roomsLeft, originalPrice,
         discountedPrice, totalPrice, image, package_name, package_price,
 
     } = rooms || {}
@@ -58,6 +58,7 @@ const RoomsCard = () => {
 
     const handleModalFrom = async (e) => {
         e.preventDefault()
+        const roomId = _id
         const rommImage = image
         const roomType = room_type
         const checkIn = startDate
@@ -65,8 +66,9 @@ const RoomsCard = () => {
         const price = totalPrice
         const userName = user?.displayName
         const userEmail = user?.email
+
         // const roomsLeft = roomsLeft
-        const modalData = { rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
+        const modalData = {roomId, rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
         console.log(modalData)
         document.getElementById('my_modal_5').close();
 

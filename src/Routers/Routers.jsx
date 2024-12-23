@@ -7,6 +7,7 @@ import Register from '../Pages/LoginRegister/Register'
 import Rooms from '../Components/Rooms'
 import MyBookings from '../Components/MyBookings'
 import SecureRouter from './SecureRouter'
+import RoomsCard from '../Components/RoomsCard'
 
 const Routers = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const Routers = createBrowserRouter([
                         <MyBookings />
                     </SecureRouter>
             },
+            {
+                path: '/roomsCard/:id',
+                element: <RoomsCard />
+            }
         ]
     }
 ])

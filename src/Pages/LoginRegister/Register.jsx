@@ -38,16 +38,17 @@ const Register = () => {
                 toast.success('User registered successfully')
                 console.log('User registered successfully', user)
                 navigate('/login')
-                // const newReg = { name, photo, email }
-                // const res = await fetch('https://server-side-a10.vercel.app/users', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify(newReg)
-                // })
-                // const data = await res.json();
-                // console.log(data)
+                const newReg = { name, photo, email }
+                const res = await fetch('http://localhost:8001/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newReg)
+                })
+                const data = await res.json();
+                // setUser(data)
+                console.log(data)
 
 
 

@@ -33,7 +33,7 @@ const RoomsCard = () => {
 
     }, []);
 
-    const { _id,room_type, adults, roomsLeft, originalPrice,
+    const { _id, room_type, adults, roomsLeft, originalPrice,
         discountedPrice, totalPrice, image, package_name, package_price,
 
     } = rooms || {}
@@ -68,7 +68,7 @@ const RoomsCard = () => {
         const userEmail = user?.email
 
         // const roomsLeft = roomsLeft
-        const modalData = {roomId, rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
+        const modalData = { roomId, rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
         console.log(modalData)
         document.getElementById('my_modal_5').close();
 

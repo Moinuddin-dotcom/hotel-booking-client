@@ -74,7 +74,7 @@ const MyBookings = () => {
                             <th>My Profile</th>
                             <th>Price</th>
                             <th>Review <span className='font-semibold text-red-900'>(Pending)</span> </th>
-                            <th>Update</th>
+                            {/* <th>Update</th> */}
                             <th>Delete</th>
                         </tr>
                     </thead>

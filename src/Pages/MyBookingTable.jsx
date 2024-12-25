@@ -14,6 +14,8 @@ const MyBookingTable = ({ table, handleDelete }) => {
     // console.log(_id)
     const [startDate, setStartDate] = useState(new Date(checkIn))
     const [endDate, setEndDate] = useState(new Date(checkOut))
+    // const [updateReview, setUpdateReview] = useState(review)
+    // console.log(updateReview)
 
     const handleStartDateChange = (date) => {
         const formattedDate = date.toISOString().split('T')[0];
@@ -128,8 +130,8 @@ const MyBookingTable = ({ table, handleDelete }) => {
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}>open modal</button> */}
             <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
-                    <UserReviews />
-                   
+                    <UserReviews bookingId={_id} />
+
                 </div>
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>

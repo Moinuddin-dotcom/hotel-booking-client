@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 
 const Rooms = () => {
     const [rooms, setRooms] = useState([])
-    
+
 
     const roomsData = async () => {
         const response = await fetch('http://localhost:8001/rooms')
@@ -13,7 +13,7 @@ const Rooms = () => {
         setRooms(data)
         // console.log(data)
     }
-    
+
 
     useEffect(() => {
         roomsData()

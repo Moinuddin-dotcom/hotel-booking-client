@@ -21,11 +21,6 @@ const MyBookings = () => {
 
     const handleDelete = async (id) => {
         console.log("Lets delete card", id)
-        // const res = await fetch(`http://localhost:8001/bookedHotel/${id}`, {
-        //     method: 'DELETE',
-        // })
-        // const data = await res.json()
-        // console.log("Delete is done", data)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -67,7 +62,6 @@ const MyBookings = () => {
             <Helmet>
                 <title>My Bookings | The Peninsula</title>
             </Helmet>
-            <h1 className='text-4xl'>MyBookings(Private router)</h1>
             <div className="max-w-[90vw] mx-auto overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -77,7 +71,7 @@ const MyBookings = () => {
                             <th>Hotel Details</th>
                             <th>My Profile</th>
                             <th>Price</th>
-                            <th>Review <span className='font-semibold text-red-900'>(Pending)</span> </th>
+                            <th>Review </th>
                             {/* <th>Update</th> */}
                             <th>Delete</th>
                         </tr>
@@ -89,6 +83,7 @@ const MyBookings = () => {
                                 <MyBookingTable key={table._id}
                                     table={table}
                                     handleDelete={handleDelete}
+                                    cardId={table._id}
                                 />)
                         }
 

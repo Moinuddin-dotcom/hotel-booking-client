@@ -17,8 +17,8 @@ const RoomsCard = () => {
     const [startDate, setStartDate] = useState(new Date())
     // 
     const [endDate, setEndDate] = useState(new Date())
-    // const [review, setReview] = useState([])
-    // console.log(review)
+    // const [updateReview, setupdateReview] = useState([])
+    // console.log(updateReview)
 
 
     const roomsData = async () => {
@@ -26,7 +26,8 @@ const RoomsCard = () => {
         const data = await response.json()
         setRooms(data)
         setSoldRoom(data.roomsLeft)
-        // console.log(data)
+        // setupdateReview(data.review)
+        console.log(data)
     }
 
     useEffect(() => {
@@ -35,9 +36,10 @@ const RoomsCard = () => {
     }, []);
 
     const { _id, room_type, adults, roomsLeft, originalPrice,
-        discountedPrice, totalPrice, image, package_name, package_price,
+        discountedPrice, totalPrice, image, package_name, package_price
 
     } = rooms || {}
+    // console.log(_id)
 
 
 
@@ -60,6 +62,23 @@ const RoomsCard = () => {
         // Check if room is available
         if (soldRoom <= 0) {
             return toast.error('Room is not available')
+        }
+
+        else {
+            Swal.fire({
+                title: 'Confirm Booking?',
+                text: `Check-in: ${format(startDate, 'dd-MM-yyyy')} \n Check-out: ${format(endDate, 'dd-MM-yyyy')}`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Book Now!'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    // handleBooking()
+                    toast.success('Room Confimred')
+                }
+            })
         }
         // if (soldRoom > 0) return toast.success('Room Confimred')
         const updatedRoomsLeft = soldRoom - 1;
@@ -96,14 +115,15 @@ const RoomsCard = () => {
     }
 
 
-    // fetch for review
+    // fetch for updateReview
     // useEffect(() => {
-    //     const reviewData = async (id) => {
-    //         const res = await fetch(`http://localhost:8001/reviews/${id}`)
+    //     const updateReviewData = async () => {
+    //         const res = await fetch(`http://localhost:8001/updateReviews`)
     //         const data = await res.json()
-    //         setReview(data)
+    //         setupdateReview(data)
+    //         console.log(data)
     //     }
-    //     reviewData()
+    //     updateReviewData()
     // }, [])
 
 
@@ -112,7 +132,7 @@ const RoomsCard = () => {
 
     return (
         <>
-        <Helmet>
+            <Helmet>
                 <title>Room Details | The Peninsula</title>
             </Helmet>
             <div className='hero border-2 bg-center bg-cover min-h-screen'
@@ -187,9 +207,14 @@ const RoomsCard = () => {
                                 </p>
 
                                 {/* Review section */}
+                                updateReview:
                                 {/* {
-                                    review ? 'Yes' : 'No'
+                                    updateReview && 'Yes'
                                 } */}
+                                {/* {
+                                    updateReview.map(update=> {update.length})
+                                } */}
+                                {/* {updateReview.length} */}
 
                                 {/* Pricing Section */}
                                 <div className="flex items-center justify-between mt-4">

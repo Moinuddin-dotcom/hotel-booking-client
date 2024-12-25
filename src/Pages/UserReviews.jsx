@@ -3,7 +3,7 @@ import useAuth from '../Hooks/useAuth'
 import Rating from 'react-rating';
 
 
-const UserReviews = () => {
+const UserReviews = ({ bookingId }) => {
     const { user } = useAuth()
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('')
@@ -19,7 +19,7 @@ const UserReviews = () => {
         const userRating = rating;
         const userReview = review;
         const timestamp = new Date().toISOString()
-        const dataFile = { userName, rating: userRating, review: userReview, timestamp };
+        const dataFile = { bookingId, userName, rating: userRating, review: userReview, timestamp };
 
         console.log(dataFile);
 
@@ -36,15 +36,6 @@ const UserReviews = () => {
 
     }
 
-    // const reviewFrom = async (e) => {
-    //     e.preventDefault()
-    //     const reviewdata = e.target.review.value
-    //     console.log(reviewdata)
-    //     // setreview(false)
-    //     // e.target.reset()
-
-    //     // setreview(false, data)
-    // }
 
 
 

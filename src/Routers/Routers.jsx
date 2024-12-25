@@ -8,11 +8,13 @@ import Rooms from '../Components/Rooms'
 import MyBookings from '../Components/MyBookings'
 import SecureRouter from './SecureRouter'
 import RoomsCard from '../Components/RoomsCard'
+import ErrorPage from '../Pages/ErrorPage'
 
 const Routers = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,

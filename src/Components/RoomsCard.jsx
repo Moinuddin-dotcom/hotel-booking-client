@@ -16,7 +16,7 @@ const RoomsCard = () => {
     const [startDate, setStartDate] = useState(new Date())
     // 
     const [endDate, setEndDate] = useState(new Date())
-    // const [review, setreview] = useState(true)
+    // const [review, setReview] = useState([])
     // console.log(review)
 
 
@@ -25,7 +25,7 @@ const RoomsCard = () => {
         const data = await response.json()
         setRooms(data)
         setSoldRoom(data.roomsLeft)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {
@@ -38,23 +38,7 @@ const RoomsCard = () => {
 
     } = rooms || {}
 
-    const reviewFrom = async (e) => {
-        e.preventDefault()
-        const reviewdata = e.target.review.value
-        console.log(reviewdata)
-        // setreview(false)
-        // e.target.reset()
-        const res = await fetch(`http://localhost:8001/reviews`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ reviewdata })
-        })
-        const data = await res.json()
-        console.log(data)
-        setreview(false, data)
-    }
+
 
     const handleModalFrom = async (e) => {
         e.preventDefault()
@@ -110,43 +94,34 @@ const RoomsCard = () => {
 
     }
 
-    const confirmation = () => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
 
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-            }
-        });
-    }
+    // fetch for review
+    // useEffect(() => {
+    //     const reviewData = async (id) => {
+    //         const res = await fetch(`http://localhost:8001/reviews/${id}`)
+    //         const data = await res.json()
+    //         setReview(data)
+    //     }
+    //     reviewData()
+    // }, [])
+
 
 
 
 
     return (
         <>
-            <div className='hero border-2 w-full bg-center bg-cover min-h-screen'
+            <div className='hero border-2 bg-center bg-cover min-h-screen'
                 style={{
                     backgroundImage: `url(${image})`,
                 }}>
-                <div className="hero-content flex-col lg:flex-row gap-20 border-2 bg-green-900/70">
+                <div className="max-w-[80vw] mx-auto hero-content flex-col lg:flex-row border-2 bg-green-900/70">
                     <div>
                         <img
                             src={image}
-                            className="max-w-xl rounded-lg shadow-2xl" />
+                            className="max-w-sm lg:max-w-sm xl:max-w-lg rounded-lg shadow-2xl" />
                     </div>
-                    <div className=" bg-white shadow-md rounded-lg overflow-hidden border">
+                    <div className="bg-white max-w-sm shadow-md rounded-lg overflow-hidden border">
                         <form  >
                             {/* Content Section */}
                             <div className="p-4">
@@ -209,26 +184,8 @@ const RoomsCard = () => {
 
                                 {/* Review section */}
                                 {/* {
-                                review ?
-                                    <div>
-                                        <form onSubmit={reviewFrom}>
-                                            <label className='text-gray-700 ' htmlFor='description'>
-                                                Give review
-                                            </label>
-                                            <textarea
-                                                className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
-                                                name='description'
-                                                id='review'>
-                                            </textarea>
-                                            <input type="submit" value="Submit" className='btn btn-sm mt-1' />
-                                        </form>
-                                    </div>
-
-                                    :
-                                    <div>
-                                        <Link to={'/#'} className='font-semibold text-blue-600 underline '>see all review</Link>
-                                    </div>
-                            } */}
+                                    review ? 'Yes' : 'No'
+                                } */}
 
                                 {/* Pricing Section */}
                                 <div className="flex items-center justify-between mt-4">
@@ -256,10 +213,11 @@ const RoomsCard = () => {
                 </div>
             </div>
 
+
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
+            <dialog id="my_modal_5" className="modal">
+                <div className="modal-box  w-11/12 max-w-4xl">
                     <form onSubmit={handleModalFrom} method="dialog">
                         <div>
                             <label className='text-gray-700'> Check-In:</label>
@@ -268,6 +226,7 @@ const RoomsCard = () => {
                                 className='border p-2 rounded-md'
                                 selected={startDate}
                                 onChange={date => setStartDate(date)}
+                                disabled
                             />
                         </div>
                         <div>
@@ -278,6 +237,7 @@ const RoomsCard = () => {
                                 className='border p-2 rounded-md'
                                 selected={endDate}
                                 onChange={date => setEndDate(date)}
+                                disabled
                             />
                         </div>
                         <input type="text" />
@@ -285,6 +245,9 @@ const RoomsCard = () => {
                         <input type="submit" value="Confirm" className='btn' />
                     </form>
                 </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
             </dialog>
         </>
     )

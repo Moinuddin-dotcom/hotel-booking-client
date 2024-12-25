@@ -16,9 +16,9 @@ const Home = () => {
             <section>
                 <FeaturedRooms />
             </section>
-            <section>
+            {/* <section>
                 <UserReviews />
-            </section>
+            </section> */}
         </div>
     )
 }

@@ -7,10 +7,11 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { format } from 'date-fns'
 import toast from 'react-hot-toast'
+import UserReviews from './UserReviews'
 
 const MyBookingTable = ({ table, handleDelete }) => {
     const { _id, rommImage, roomType, checkIn, checkOut, price, userName, userEmail } = table
-    console.log(_id)
+    // console.log(_id)
     const [startDate, setStartDate] = useState(new Date(checkIn))
     const [endDate, setEndDate] = useState(new Date(checkOut))
 
@@ -82,36 +83,23 @@ const MyBookingTable = ({ table, handleDelete }) => {
                     <div className='space-y-1'>
                         <div className="font-bold">{roomType}</div>
                         <div className="text-sm  flex justify-center items-center gap-2">
-                            {/* opacity-50 */}
-                            {/* Check-In: */}
-                            {/* <input
-                                type="date"
-                                defaultValue={startDate}
-                                value={startDate}
-                                onChange={(e) => setStartDate(e.target.value)}
-                                className="border p-1 rounded-md"
-                            /> */}
-                            {/* Date Picker Input Field */}
                             <div>
                                 <label className='text-gray-700'> Check-In:</label>
                                 <DatePicker
-                                    className='border p-2 rounded-md'
+                                    className='border p-1 rounded-md'
                                     selected={new Date(startDate)}
-                                    onChange={(date)=>handleStartDateChange(date)}
+                                    onChange={(date) => handleStartDateChange(date)}
                                 />
                             </div>
                             <button onClick={updateStartDate} className="btn btn-sm btn-warning"> Update </button>
                         </div>
                         <div className="text-sm  flex justify-center items-center gap-2">
-                            {/* opacity-50 */}
-                            {/* Check Out: {checkOut} */}
-                            {/* Date Picker Input Field */}
-                            <div>
+                            <div className='flex justify-center items-center'>
                                 <label className='text-gray-700'>Check-out:</label>
                                 <DatePicker
-                                    className='border p-2 rounded-md'
+                                    className='border p-1 rounded-md'
                                     selected={new Date(endDate)}
-                                    onChange={(date)=>handleEndDateChange(date)}
+                                    onChange={(date) => handleEndDateChange(date)}
                                 />
                             </div>
                             <button onClick={updateEndDate} className="btn btn-sm btn-warning"> Update </button>
@@ -127,19 +115,28 @@ const MyBookingTable = ({ table, handleDelete }) => {
             </td>
             <td>BDT:{price}/-</td>
             <td>
-                <button className="btn btn-sm">Share your thougts</button>
+                <button
+                    onClick={() => document.getElementById('my_modal_2').showModal()}
+                    className="btn btn-sm">Share your thougts</button>
             </td>
-            {/* <th>
-
-                <LuFolderSync className='text-2xl hover:text-3xl text-green-900' />
-
-            </th> */}
             <th>
 
                 <MdOutlineRemoveShoppingCart className='text-2xl hover:text-3xl text-red-900' onClick={() => handleDelete(_id)} />
 
             </th>
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            {/* <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}>open modal</button> */}
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <UserReviews />
+                   
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </tr>
+
     )
 }
 

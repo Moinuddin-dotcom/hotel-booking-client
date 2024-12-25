@@ -40,7 +40,7 @@ const Register = () => {
                 console.log('User registered successfully', user)
                 navigate('/login')
                 const newReg = { name, photo, email }
-                const res = await fetch('http://localhost:8001/users', {
+                const res = await fetch('${import.meta.env.VITE_API_URL}/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

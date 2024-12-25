@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { format } from 'date-fns'
 import toast from 'react-hot-toast'
 import UserReviews from './UserReviews'
+import axios from 'axios'
 
 const MyBookingTable = ({ table, handleDelete }) => {
     const { _id, rommImage, roomType, checkIn, checkOut, price, userName, userEmail } = table
@@ -29,15 +30,16 @@ const MyBookingTable = ({ table, handleDelete }) => {
 
     const updateStartDate = async () => {
         try {
-            const res = await fetch(`http://localhost:8001/bookedHotel/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ checkIn: startDate }),
-                // dd-MM-yyyy
-            })
-            const data = await res.json()
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`,{ checkIn: startDate })
+            // const res = await fetch(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, {
+            //     method: 'PATCH',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ checkIn: startDate }),
+            //     // dd-MM-yyyy
+            // })
+            // const data = await res.json()
             console.log("Update is done", data)
             toast.success('Date Updated successful')
         } catch (error) {
@@ -48,15 +50,16 @@ const MyBookingTable = ({ table, handleDelete }) => {
     const updateEndDate = async () => {
         // console.log("Lets update start date")
         try {
-            const res = await fetch(`http://localhost:8001/bookedHotel/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ checkOut: endDate }),
-                // dd-MM-yyyy
-            })
-            const data = await res.json()
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`,{ checkOut: endDate })
+            // const res = await fetch(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, {
+            //     method: 'PATCH',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ checkOut: endDate }),
+            //     // dd-MM-yyyy
+            // })
+            // const data = await res.json()
             console.log("Update is done", data)
             toast.success('Date Updated successful')
         } catch (error) {

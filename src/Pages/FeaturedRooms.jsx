@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -6,11 +7,18 @@ const FeaturedRooms = () => {
 
 
     const roomsData = async () => {
-        const response = await fetch('http://localhost:8001/rooms')
-        const data = await response.json()
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms`)
+        // const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`)
+        // const data = await response.json()
         setRooms(data)
         console.log(data)
     }
+    // const roomsData = async () => {
+    //     const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`)
+    //     const data = await response.json()
+    //     setRooms(data)
+    //     console.log(data)
+    // }
 
 
 
@@ -44,7 +52,7 @@ const FeaturedRooms = () => {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title text-xl font-bold">{room.package_name} <div className="badge badge-secondary">Top Rated</div></h2>
-                                
+
                                 <p className="text-sm text-gray-500">{room.room_type}</p>
                                 <div className="mt-2">
                                     <p>

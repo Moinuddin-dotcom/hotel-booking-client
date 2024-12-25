@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useAuth from '../Hooks/useAuth'
 import Rating from 'react-rating';
+import axios from 'axios';
 
 
 const UserReviews = ({ bookingId }) => {
@@ -22,17 +23,19 @@ const UserReviews = ({ bookingId }) => {
         const dataFile = { bookingId, userName, rating: userRating, review: userReview, timestamp };
 
         console.log(dataFile);
-
-        const res = await fetch(`http://localhost:8001/reviews`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataFile)
-        })
-        const data = await res.json()
+        
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/reviews`, dataFile)
         console.log(data)
         document.getElementById('my_modal_2').close()
+        // const res = await fetch(`${import.meta.env.VITE_API_URL}/reviews`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(dataFile)
+        // })
+        // const data = await res.json()
+
 
     }
 

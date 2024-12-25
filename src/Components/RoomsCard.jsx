@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import useAuth from '../Hooks/useAuth';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const RoomsCard = () => {
     const { id } = useParams()
@@ -22,8 +23,9 @@ const RoomsCard = () => {
 
 
     const roomsData = async () => {
-        const response = await fetch(`http://localhost:8001/rooms/${id}`)
-        const data = await response.json()
+        // const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms/${id}`)
+        // const data = await response.json()
         setRooms(data)
         setSoldRoom(data.roomsLeft)
         // setupdateReview(data.review)
@@ -86,31 +88,40 @@ const RoomsCard = () => {
 
         // fetch for booking hotel information added by user email
         // const bookingData = { roomType, checkIn, checkOut, price, userName, userEmail }
-        const response = await fetch(`http://localhost:8001/bookedHotel`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(modalData)
-        })
-        const bookingDataRes = await response.json()
-        console.log(bookingDataRes)
+
+
+        // const { data } = 
+        await axios.post(`${import.meta.env.VITE_API_URL}/bookedHotel`, modalData)
+        // console.log(data)
+        // const response = await fetch(`${import.meta.env.VITE_API_URL}/bookedHotel`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(modalData)
+        // })
+        // const bookingDataRes = await response.json()
+        // console.log(bookingDataRes)
 
 
 
 
 
         // fetch for room left 
-        const res = await fetch(`http://localhost:8001/rooms/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ roomsLeft: updatedRoomsLeft })
-        })
-        const updatedData = await res.json()
-        console.log(updatedData)
+        // const { data } = 
+        await axios.put(`${import.meta.env.VITE_API_URL}/rooms/${id}`, { roomsLeft: updatedRoomsLeft })
         roomsData()
+
+        // const res = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ roomsLeft: updatedRoomsLeft })
+        // })
+        // const updatedData = await res.json()
+        // console.log(updatedData)
+        // roomsData()
 
     }
 
@@ -118,7 +129,7 @@ const RoomsCard = () => {
     // fetch for updateReview
     // useEffect(() => {
     //     const updateReviewData = async () => {
-    //         const res = await fetch(`http://localhost:8001/updateReviews`)
+    //         const res = await fetch(`${import.meta.env.VITE_API_URL}/updateReviews`)
     //         const data = await res.json()
     //         setupdateReview(data)
     //         console.log(data)

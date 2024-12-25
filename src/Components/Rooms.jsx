@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import RoomsCard from './RoomsCard'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 const Rooms = () => {
     const [rooms, setRooms] = useState([])
@@ -23,6 +24,9 @@ const Rooms = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Rooms | The Peninsula</title>
+            </Helmet>
             <h1 className='text-center font-bold text-4xl py-4'>See all available rooms: {rooms.length} </h1>
 
             <main className='max-w-[80vw] lg:max-w-[95vw] xl:max-w-[80vw] mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 py-5'>

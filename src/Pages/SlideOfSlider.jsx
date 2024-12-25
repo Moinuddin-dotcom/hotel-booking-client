@@ -16,7 +16,7 @@ const SlideOfSlider = ({ image, text }) => {
                     </h1>
                     <br />
                     <Link
-                        to='/add-job'
+                        to='/rooms'
                         className='btn btn-wide underline'
                     >
                         Rooms

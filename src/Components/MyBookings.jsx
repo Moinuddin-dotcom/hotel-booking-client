@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useAuth from '../Hooks/useAuth'
 import MyBookingTable from '../Pages/MyBookingTable'
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet'
 
 const MyBookings = () => {
     const { user } = useAuth()
@@ -63,6 +64,9 @@ const MyBookings = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>My Bookings | The Peninsula</title>
+            </Helmet>
             <h1 className='text-4xl'>MyBookings(Private router)</h1>
             <div className="max-w-[90vw] mx-auto overflow-x-auto">
                 <table className="table">

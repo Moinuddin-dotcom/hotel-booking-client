@@ -3,6 +3,7 @@ import { TfiGoogle } from 'react-icons/tfi'
 import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../../Hooks/useAuth'
 import toast from 'react-hot-toast'
+import { Helmet } from 'react-helmet'
 
 const Login = () => {
     const { userlogIn, setUser, handleGoolgeLogIn } = useAuth()
@@ -66,6 +67,9 @@ const Login = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Log In | The Peninsula</title>
+            </Helmet>
             <div className='max-w-[40vw] mx-auto bg-green-800'>
                 <div className="googleLogin text-center pt-5">
                     <button

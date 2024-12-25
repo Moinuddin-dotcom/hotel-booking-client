@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import useAuth from '../Hooks/useAuth';
+import { Helmet } from 'react-helmet';
 
 const RoomsCard = () => {
     const { id } = useParams()
@@ -111,6 +112,9 @@ const RoomsCard = () => {
 
     return (
         <>
+        <Helmet>
+                <title>Room Details | The Peninsula</title>
+            </Helmet>
             <div className='hero border-2 bg-center bg-cover min-h-screen'
                 style={{
                     backgroundImage: `url(${image})`,

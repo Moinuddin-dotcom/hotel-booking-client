@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth'
+import logo from '../assets/images/Logo.webp'
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
@@ -14,11 +15,14 @@ const Navbar = () => {
         }>My Bookings</NavLink>
     </>
     const logoLink = <>
-        <Link to={"/"} className="btn btn-ghost text-xl">daisyUI</Link>
+        <Link to={"/"} className="btn btn-ghost text-xl">
+        <img className='w-10 rounded-full' src={logo} alt="" />
+        The Peninsula
+        </Link>
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

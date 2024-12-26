@@ -4,6 +4,7 @@ import { TfiGoogle } from 'react-icons/tfi'
 import useAuth from '../../Hooks/useAuth'
 import toast from 'react-hot-toast'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
 
 const Register = () => {
     const { user, newUser, setUser, handleGoolgeLogIn } = useAuth()
@@ -40,30 +41,8 @@ const Register = () => {
                 console.log('User registered successfully', user)
                 navigate('/login')
                 const newReg = { name, photo, email }
-                const res = await fetch('${import.meta.env.VITE_API_URL}/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newReg)
-                })
-                const data = await res.json();
-                // setUser(data)
+                const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/users`, newReg)
                 console.log(data)
-
-
-
-
-
-
-                // updateUserProfile({ displayName: name, photoURL: photo })
-                //     .then(() => {
-                //         navigate("/login")
-                //     })
-                //     .catch(err => {
-                //         // console.log(err.message)
-                //     })
-                // setUser(user)
             })
             .catch(error => {
                 console.log("Error creating user", error.message)

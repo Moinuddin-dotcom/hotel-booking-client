@@ -9,9 +9,7 @@ const MyBookings = () => {
     const { user } = useAuth()
     const [loginUserBookingRoom, setLoginUserBookingRoom] = useState([])
     const fetchBookingRoom = async () => {
-        // const res = await fetch(`${import.meta.env.VITE_API_URL}/bookedHotel/${user?.email}`)
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/bookedHotel/${user?.email}`)
-        // const data = await res.json()
         console.log(data)
         setLoginUserBookingRoom(data)
 
@@ -34,10 +32,6 @@ const MyBookings = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/bookedHotel/${id}`)
-                // const res = await fetch(`${import.meta.env.VITE_API_URL}/bookedHotel/${id}`, {
-                //     method: 'DELETE',
-                // })
-                // const data = await res.json()
                 console.log("Delete is done", data)
                 if (data.deletedCount > 0) {
                     const remaining = loginUserBookingRoom.filter(remain => remain._id !== id)

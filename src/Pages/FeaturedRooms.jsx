@@ -8,17 +8,9 @@ const FeaturedRooms = () => {
 
     const roomsData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms`)
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`)
-        // const data = await response.json()
         setRooms(data)
         console.log(data)
     }
-    // const roomsData = async () => {
-    //     const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`)
-    //     const data = await response.json()
-    //     setRooms(data)
-    //     console.log(data)
-    // }
 
 
 
@@ -32,8 +24,8 @@ const FeaturedRooms = () => {
     }, []);
     return (
         <div className='text-center'>
-            <h1 className='text-4xl'>Featured Rooms(Pending)</h1>
-            <p>Showcase six top-rated rooms with images, descriptions, and a "Book Now" button for easy reservations. Highlight other key features if needed. The Book Now Button will redirect the user to that room's detail page.</p>
+            <h1 className='text-4xl'>Top Rated Rooms</h1>
+            {/* <p>Showcase six top-rated rooms with images, descriptions, and a "Book Now" button for easy reservations. Highlight other key features if needed. The Book Now Button will redirect the user to that room's detail page.</p> */}
             <div className='max-w-[90vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 my-5'>
                 {
                     rooms.splice(0, 6).map(room =>

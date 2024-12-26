@@ -20,9 +20,6 @@ const Home = () => {
             <section>
                 <FeaturedRooms />
             </section>
-            {/* <section>
-                <UserReviews />
-            </section> */}
         </div>
     )
 }

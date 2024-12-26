@@ -17,12 +17,6 @@ const Rooms = () => {
 
 
     useEffect(() => {
-        // const roomsData = async () => {
-        //     const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms?sort=${sort}`)
-        //     const data = await response.json()
-        //     setRooms(data)
-        //     console.log(data)
-        // }
         roomsData()
     }, [sort]);
 

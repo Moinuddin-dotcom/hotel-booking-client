@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../../Hooks/useAuth'
 import toast from 'react-hot-toast'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
 
 const Login = () => {
     const { userlogIn, setUser, handleGoolgeLogIn } = useAuth()
@@ -14,16 +15,17 @@ const Login = () => {
 
 
 
-    const handleGoolge = () => {
-        handleGoolgeLogIn()
-            .then((result) => {
-                setUser(result.user)
-                navigate(from, { replace: true })
-            })
-            .catch((error) => {
-                console.log("ERROR", error)
-                setUser(null);
-            })
+    const handleGoolge = async () => {
+        try {
+            const result = await handleGoolgeLogIn()
+            // const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email })
+            // console.log(data)
+            setUser(result?.user)
+            navigate(from, { replace: true })
+        } catch (error) {
+            console.log("ERROR", error)
+            setUser(null);
+        }
     }
 
 

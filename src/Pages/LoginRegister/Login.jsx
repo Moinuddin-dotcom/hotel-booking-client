@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TfiGoogle } from 'react-icons/tfi'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useAuth from '../../Hooks/useAuth'
 import toast from 'react-hot-toast'
 import { Helmet } from 'react-helmet'
@@ -10,6 +10,7 @@ const Login = () => {
     const { userlogIn, setUser, handleGoolgeLogIn } = useAuth()
     const [error, setError] = useState({})
     const navigate = useNavigate()
+    const location = useLocation()
     const from = location?.state || '/'
     // const from = '/'
 

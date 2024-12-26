@@ -41,7 +41,10 @@ const Routers = createBrowserRouter([
             },
             {
                 path: '/roomsCard/:id',
-                element: <RoomsCard />
+                element:
+                    <SecureRouter>
+                        <RoomsCard />
+                    </SecureRouter>
             }
         ]
     }

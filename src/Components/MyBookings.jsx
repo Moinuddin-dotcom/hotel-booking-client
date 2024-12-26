@@ -9,7 +9,7 @@ const MyBookings = () => {
     const { user } = useAuth()
     const [loginUserBookingRoom, setLoginUserBookingRoom] = useState([])
     const fetchBookingRoom = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/bookedHotel/${user?.email}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/bookedHotel/${user?.email}`, { withCredentials: true });
         console.log(data)
         setLoginUserBookingRoom(data)
 

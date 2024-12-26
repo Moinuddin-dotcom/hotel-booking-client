@@ -83,8 +83,6 @@ const RoomsCard = () => {
         setSoldRoom(updatedRoomsLeft);
 
         // fetch for booking hotel information added by user email
-
-
         // const { data } = 
         await axios.post(`${import.meta.env.VITE_API_URL}/bookedHotel`, modalData)
         // console.log(data)

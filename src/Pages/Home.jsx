@@ -4,6 +4,7 @@ import Map from './Map'
 import FeaturedRooms from './FeaturedRooms'
 import UserReviews from './UserReviews'
 import { Helmet } from 'react-helmet'
+import SpecialOffersModal from './SpecialOffersModal'
 
 const Home = () => {
     return (
@@ -16,6 +17,9 @@ const Home = () => {
             </header>
             <section>
                 <Map />
+            </section>
+            <section>
+                <SpecialOffersModal />
             </section>
             <section>
                 <FeaturedRooms />

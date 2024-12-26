@@ -12,6 +12,7 @@ const Main = () => {
             <main>
                 <Outlet />
             </main>
+             
             <footer>
                 <Footer />
             </footer>

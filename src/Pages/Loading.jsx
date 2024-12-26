@@ -4,7 +4,7 @@ import loadingLotti from '../../src/assets/Animation/LoadingAnimation.json'
 
 const Loading = () => {
     return (
-        <div className='max-w-[50vw] mx-auto'>
+        <div className='max-w-[50vw] mx-auto text-white'>
             <Lottie animationData={loadingLotti} ></Lottie>
         </div>
     )

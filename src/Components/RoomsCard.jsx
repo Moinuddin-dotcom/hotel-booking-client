@@ -116,7 +116,7 @@ const RoomsCard = () => {
                             src={image}
                             className="max-w-sm lg:max-w-sm xl:max-w-lg rounded-lg shadow-2xl" />
                     </div>
-                    <div className="bg-white max-w-sm shadow-md rounded-lg overflow-hidden border">
+                    <div className="bg-white max-w-sm shadow-md rounded-lg overflow-hidden border animate__animated animate__bounce">
                         <form  >
                             {/* Content Section */}
                             <div className="p-4">
@@ -152,9 +152,6 @@ const RoomsCard = () => {
                                         </div>
 
                                     </div>
-                                    {/* <div className="flex items-center">
-                                    <span className="mr-2">📅</span>Check-out: {checkOut}
-                                </div> */}
                                 </div>
 
                                 {/* Package Section */}
@@ -177,16 +174,6 @@ const RoomsCard = () => {
                                     Only {roomsLeft} rooms left
                                 </p>
 
-                                {/* Review section */}
-                                updateReview:
-                                {/* {
-                                    updateReview && 'Yes'
-                                } */}
-                                {/* {
-                                    updateReview.map(update=> {update.length})
-                                } */}
-                                {/* {updateReview.length} */}
-
                                 {/* Pricing Section */}
                                 <div className="flex items-center justify-between mt-4">
                                     <div>
@@ -196,7 +183,6 @@ const RoomsCard = () => {
                                             ৳{totalPrice} (total including taxes & fees)
                                         </p>
                                     </div>
-                                    {/* <button className="btn btn-primary">Book Now</button> */}
                                 </div>
 
                                 {/* Price Details */}
@@ -213,14 +199,11 @@ const RoomsCard = () => {
                 </div>
             </div>
 
-
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
             <dialog id="my_modal_5" className="modal">
-                <div className="modal-box  w-11/12 max-w-4xl">
-                    <form onSubmit={handleModalFrom} method="dialog">
-                        <div>
-                            <label className='text-gray-700'> Check-In:</label>
+                <div className="modal-box  w-11/12 max-w-4xl text-center space-y-5 bg-gradient-to-r from-[#20312B] to-[#3A524B] text-white">
+                    <form onSubmit={handleModalFrom} method="dialog" className='space-y-4'>
+                        <div className='space-x-4'>
+                            <label className=' text-white'> Check-In:</label>
                             {/* Date Picker Input Field */}
                             <DatePicker
                                 className='border p-2 rounded-md'
@@ -229,9 +212,8 @@ const RoomsCard = () => {
                                 disabled
                             />
                         </div>
-                        <div>
-                            <label className='text-gray-700'>Check-out:</label>
-
+                        <div className='space-x-4'>
+                            <label className=' text-white'>Check-out:</label>
                             {/* Date Picker Input Field */}
                             <DatePicker
                                 className='border p-2 rounded-md'
@@ -240,13 +222,12 @@ const RoomsCard = () => {
                                 disabled
                             />
                         </div>
-                        <input type="text" />
-                        <p className="py-4">৳{totalPrice} (total including taxes & fees)</p>
-                        <input type="submit" value="Confirm" className='btn' />
+                        <p className="py-4 underline">৳{totalPrice} (total including taxes & fees)</p>
+                        <input type="submit" value="Confirm" className='btn bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white' />
                     </form>
                 </div>
-                <form method="dialog" className="modal-backdrop">
-                    <button>close</button>
+                <form method="dialog" className="modal-backdrop bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white">
+                    <button className=''>close</button>
                 </form>
             </dialog>
         </>

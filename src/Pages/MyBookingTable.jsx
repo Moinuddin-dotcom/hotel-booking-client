@@ -71,10 +71,10 @@ const MyBookingTable = ({ table, handleDelete }) => {
                     <div className='space-y-1'>
                         <div className="font-bold">{roomType}</div>
                         <div className="text-sm  flex justify-center items-center gap-2">
-                            <div>
-                                <label className='text-gray-700'> Check-In:</label>
+                            <div className='space-x-5'>
+                                <label className='text-white'> Check-In:</label>
                                 <DatePicker
-                                    className='border p-1 rounded-md'
+                                    className='border p-1 rounded-md text-black'
                                     selected={new Date(startDate)}
                                     onChange={(date) => handleStartDateChange(date)}
                                 />
@@ -82,10 +82,10 @@ const MyBookingTable = ({ table, handleDelete }) => {
                             <button onClick={updateStartDate} className="btn btn-sm btn-warning"> Update </button>
                         </div>
                         <div className="text-sm  flex justify-center items-center gap-2">
-                            <div className='flex justify-center items-center'>
-                                <label className='text-gray-700'>Check-out:</label>
+                            <div className='space-x-5'>
+                                <label className='text-white'>Check-out:</label>
                                 <DatePicker
-                                    className='border p-1 rounded-md'
+                                    className='border p-1 rounded-md text-black'
                                     selected={new Date(endDate)}
                                     onChange={(date) => handleEndDateChange(date)}
                                 />
@@ -105,16 +105,16 @@ const MyBookingTable = ({ table, handleDelete }) => {
             <td>
                 <button
                     onClick={() => document.getElementById('my_modal_2').showModal()}
-                    className="btn btn-sm">Share your thougts</button>
+                    className="btn btn-sm bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white">Share your thougts</button>
             </td>
             <th>
 
-                <MdOutlineRemoveShoppingCart className='text-2xl hover:text-3xl text-red-900' onClick={() => handleDelete(_id)} />
+                <MdOutlineRemoveShoppingCart className='text-2xl hover:text-3xl text-white' onClick={() => handleDelete(_id)} />
 
             </th>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}>open modal</button> */}
-            <dialog id="my_modal_2" className="modal">
+            <dialog id="my_modal_2" className="modal bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white">
                 <div className="modal-box">
                     <UserReviews bookingId={_id} />
 

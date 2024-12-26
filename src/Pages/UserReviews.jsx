@@ -35,15 +35,15 @@ const UserReviews = ({ bookingId }) => {
 
 
     return (
-        <div className='text-center'>
+        <div className='text-center bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white'>
             <form onSubmit={handleReviewFrom}>
-                <div className="my-2">
-                    <label>Username:</label>
+                <div className="my-2 bg-[#20312B]">
+                    <label className='bg-[#20312B]'>Username:</label>
                     <input
                         type="text"
                         value={user?.displayName}
                         readOnly
-                        className="border text-center font-bold text-2xl p-2 rounded w-full bg-gray-200"
+                        className="border text-center font-bold text-2xl p-2 rounded w-full bg-[#20312B]"
                     />
                 </div>
                 <div className="my-2 flex justify-center items-center gap-2">

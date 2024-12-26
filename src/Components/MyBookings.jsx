@@ -57,10 +57,10 @@ const MyBookings = () => {
             <Helmet>
                 <title>My Bookings | The Peninsula</title>
             </Helmet>
-            <div className="max-w-[90vw] mx-auto overflow-x-auto">
+            <div className="max-w-[90vw] mx-auto overflow-x-auto text-white py-20">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='text-white'>
                         <tr>
                             <th>SL </th>
                             <th>Hotel Details</th>

@@ -37,6 +37,6 @@
 
 **Key Components**
 
-**Rooms.jsx**
-**SpecialOffersModal.jsx**
+**Rooms.jsx** |
+**SpecialOffersModal.jsx** |
 **Loading.jsx**

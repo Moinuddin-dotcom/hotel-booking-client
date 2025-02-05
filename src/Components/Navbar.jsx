@@ -59,7 +59,7 @@ const Navbar = () => {
                     user ?
                         <div>
                             <Link onClick={logOut} className="btn  bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white ">Log Out</Link>
-                           
+
                         </div>
                         :
                         <Link to={'/login'} className="btn">Log In</Link>

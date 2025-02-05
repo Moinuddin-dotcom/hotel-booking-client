@@ -13,11 +13,11 @@ const ErrorPage = () => {
             <div className='max-w-[50vw] mx-auto'>
                 <Lottie animationData={errorLotti} ></Lottie>
                 <div className="divider divider-error">
-                <button className="btn btn-warning ">
-                    <Link to={'/'} >Return Home Page</Link>
-                </button>
+                    <button className="btn btn-warning ">
+                        <Link to={'/'} >Return Home Page</Link>
+                    </button>
                 </div>
-                
+
             </div>
         </div>
     )

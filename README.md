@@ -40,3 +40,36 @@
 **Rooms.jsx** |
 **SpecialOffersModal.jsx** |
 **Loading.jsx**
+
+
+**🚀 Tech Stack**
+
+**Frontend**
+
+    React.js (UI & State Management)
+    Tailwind CSS, Daisy UI, Material UI, Wind UI, Mamba UI, Headless UI, React Flowbite
+    Axios & TanStack Query (Efficient Data Fetching)
+
+
+**⚡ Installation & Setup**
+**1️⃣ Clone the Repository**
+
+    git clone https://github.com/yourusername/hotel-booking.git
+    cd hotel-booking
+
+**2️⃣ Install Dependencies**
+
+    npm install
+
+**3️⃣ Run the Development Server**
+
+    npm run dev
+
+
+
+**📬 Contact**
+💡 Have feedback or suggestions? Let’s connect!
+
+    📧 Email: moinchy7@gmail.com
+    🔗 LinkedIn: https://www.linkedin.com/in/md-moinuddin-chowdhury-67098123b/?originalSubdomain=bd
+    🔗 GitHub: https://github.com/Moinuddin-dotcom

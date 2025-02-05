@@ -25,6 +25,7 @@
     a.Individual room details are accessible through dynamic routes.
 
 **Tech Stack**
+
     a.Frontend: React.js, React Router
     b.Styling: Tailwind CSS
     c.Backend: Node.js (Express.js)
@@ -35,6 +36,7 @@
     h.Deployment: Vite for build optimization
 
 **Key Components**
-    **Rooms.jsx**
-    **SpecialOffersModal.jsx**
-    **Loading.jsx**
+
+**Rooms.jsx**
+**SpecialOffersModal.jsx**
+**Loading.jsx**

@@ -8,12 +8,18 @@ const Navbar = () => {
     const { user, logOut } = useAuth()
     // console.log(user)
     const navLinks = <>
+        <NavLink to={"/"} className={({ isActive }) =>
+            isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
+        } >Home</NavLink>
         <NavLink to={"/rooms"} className={({ isActive }) =>
             isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
         } >Rooms</NavLink>
         <NavLink to={"/my-bookings"} className={({ isActive }) =>
             isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
         }>My Bookings</NavLink>
+        <NavLink to={"/gallery"} className={({ isActive }) =>
+            isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
+        }>Gallery</NavLink>
     </>
     const logoLink = <>
         <Link to={"/"} className="btn btn-ghost text-xl bg-white hover:bg-white hover:border-yellow-400">

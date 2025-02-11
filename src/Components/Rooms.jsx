@@ -13,13 +13,13 @@ const Rooms = () => {
     const [sort, setSort] = useState('')
     const [loading, setLoading] = useState(true)
 
-     useEffect(() => {
+    useEffect(() => {
         AOS.init({
-          duration: 1000,
-          easing: 'ease-in-out',
-          once: true,
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
         });
-      }, [])
+    }, [])
 
     const roomsData = async () => {
         setLoading(true)
@@ -29,7 +29,7 @@ const Rooms = () => {
             console.log(data)
         } catch (error) {
             toast.error('Data cant load at this moment', error)
-        }finally{
+        } finally {
             setLoading(false)
         }
     }

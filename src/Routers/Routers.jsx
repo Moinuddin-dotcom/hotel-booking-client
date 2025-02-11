@@ -9,6 +9,7 @@ import MyBookings from '../Components/MyBookings'
 import SecureRouter from './SecureRouter'
 import RoomsCard from '../Components/RoomsCard'
 import ErrorPage from '../Pages/ErrorPage'
+import Gallery from '../Components/Gallery/Gallery'
 
 const Routers = createBrowserRouter([
     {
@@ -37,6 +38,13 @@ const Routers = createBrowserRouter([
                 element:
                     <SecureRouter>
                         <MyBookings />
+                    </SecureRouter>,
+            },
+            {
+                path: '/gallery',
+                element:
+                    <SecureRouter>
+                        <Gallery />
                     </SecureRouter>,
             },
             {

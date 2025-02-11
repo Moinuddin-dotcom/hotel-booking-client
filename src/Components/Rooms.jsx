@@ -73,8 +73,17 @@ const Rooms = () => {
                                 rooms.map(room =>
                                     <Link to={`/roomsCard/${room._id}`} key={room._id} className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden border" >
                                         <img className='w-96 h-60' src={room.image} alt="" />
-                                        <div className='bg-gray-300'>
-                                            <p className='p-2'>Price: {room.totalPrice} {room.currency} </p>
+                                        <div className='bg-white px-4 '>
+                                            <h1 className='text-xl font-semibold text-center my-3'>{room.room_type}</h1>
+                                            <div className="divider"></div>
+                                            <p className='p-1'>Number of room: <strong className='text-green-500'>{room.roomsLeft}</strong>
+                                            </p>
+                                            <p className='p-1'>Rate: <strong className='text-green-500'>{room.totalPrice}{room.currency}</strong>  </p>
+                                            <p className='p-1'>Free: <strong className='text-green-500'>{room.package_name}</strong> </p>
+                                            {(room.totalPrice > 30000) &&
+                                                <div className='border-t-2 border-l-2 border-r-2 rounded-t-lg border-white hover:border-yellow-400 bg-[#98d2d1] hover:bg-black text-black hover:text-white px-4 py-2 '>
+                                                    <p>Special Offer: Get 20% off</p>
+                                                </div>}
                                         </div>
                                     </Link>
                                 )

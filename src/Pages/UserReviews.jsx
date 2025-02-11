@@ -17,10 +17,12 @@ const UserReviews = ({ bookingId }) => {
     const handleReviewFrom = async (e) => {
         e.preventDefault();
         const userName = user?.displayName;
+        const userEmail = user?.email;
+        const userPhoto = user?.photoURL;
         const userRating = rating;
         const userReview = review;
         const timestamp = new Date().toISOString()
-        const dataFile = { bookingId, userName, rating: userRating, review: userReview, timestamp };
+        const dataFile = { bookingId, userName, userEmail, userPhoto, rating: userRating, review: userReview, timestamp };
 
         console.log(dataFile);
 

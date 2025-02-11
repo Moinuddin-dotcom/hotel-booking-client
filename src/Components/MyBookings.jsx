@@ -4,6 +4,7 @@ import MyBookingTable from '../Pages/MyBookingTable'
 import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const MyBookings = () => {
     const { user } = useAuth()
@@ -61,7 +62,7 @@ const MyBookings = () => {
                 <h1 className='text-center font-semibold text-5xl pt-5 pb-10'>My Bookings</h1>
                 <table className="table">
                     {/* head */}
-                    <thead className='text-black border-b-2 border-[#98d2d1]'>
+                    {(loginUserBookingRoom.length > 0) && <thead className='text-black border-b-2 border-[#98d2d1]'>
                         <tr>
                             <th>SL </th>
                             <th>Hotel Details</th>
@@ -70,15 +71,28 @@ const MyBookings = () => {
                             <th>Review </th>
                             <th>Delete</th>
                         </tr>
-                    </thead>
+                    </thead>}
+
                     <tbody >
-                        {
-                            loginUserBookingRoom.map(table =>
-                                <MyBookingTable key={table._id}
-                                    table={table}
-                                    handleDelete={handleDelete}
-                                    cardId={table._id}
-                                />)
+                        {(loginUserBookingRoom.length > 0) ? <>
+                            {
+                                loginUserBookingRoom.map(table =>
+                                    <MyBookingTable key={table._id}
+                                        table={table}
+                                        handleDelete={handleDelete}
+                                        cardId={table._id}
+                                    />)
+                            }
+
+                        </>
+                            :
+                            <>
+                                <div className='text-center'>
+
+                                    <h1 className='text-3xl'>You didn't booked any rooms </h1>
+                                    <h3>Please vistite our rooms <Link to={'/rooms'} className='text-blue-700 font-bold underline underline-offset-2'>Rooms</Link> </h3>
+                                </div>
+                            </>
                         }
 
                     </tbody>

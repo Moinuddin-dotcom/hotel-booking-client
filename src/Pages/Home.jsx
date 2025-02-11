@@ -7,6 +7,8 @@ import { Helmet } from 'react-helmet'
 import SpecialOffersModal from './SpecialOffersModal'
 import About from './About'
 import SpaNwellness from './SpaNwellness'
+import ThingsToDo from './ThingsToDo'
+import Reviews from './Reviews'
 
 const Home = () => {
     return (
@@ -28,10 +30,16 @@ const Home = () => {
             </section>
             <section>
                 <About />
-          
+
             </section>
             <section>
                 <SpaNwellness />
+            </section>
+            <section>
+                <ThingsToDo />
+            </section>
+            <section>
+                <Reviews />
             </section>
 
         </div>

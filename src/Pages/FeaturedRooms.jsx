@@ -18,7 +18,7 @@ const FeaturedRooms = () => {
     const roomsData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms`)
         setRooms(data)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {

@@ -26,12 +26,13 @@ const FeaturedRooms = () => {
     }, []);
     return (
         <div className='text-center'>
-            <div className="divider bg-white"></div>
-            <h1 className='text-4xl underline py-5 text-white font-bold' data-aos="fade-up" data-aos-once="false">Top Rated Rooms</h1>
+            {/* <div className="divider bg-black"></div> */}
+            <h1 className='text-4xl py-5 text-black lg:text-5xl font-bold' data-aos="fade-up" data-aos-once="false">Top Rated Rooms</h1>
             <div className='max-w-[90vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 my-5'>
                 {
                     rooms.splice(0, 6).map(room =>
-                        <div key={room._id} className="card bg-base-100 shadow-xl rounded-lg border border-gray-200 " data-aos="fade-up-right" data-aos-once="false">
+                        <div key={room._id} className="card bg-[#6bba5e0d] shadow-xl rounded-lg border border-gray-200 "
+                            data-aos="fade-up" data-aos-once="false">
                             <figure className="relative">
                                 <img
                                     src={room.image}
@@ -45,7 +46,7 @@ const FeaturedRooms = () => {
                                 )}
                             </figure>
                             <div className="card-body">
-                                <h2 className="card-title text-xl font-bold">{room.package_name} <div className="badge badge-secondary">Top Rated</div></h2>
+                                <h2 className="text-xl font-bold text-center relative"> <div>{room.package_name}</div> <div className="badge badge-secondary absolute -right-6 bottom-1 ">Top Rated</div></h2>
 
                                 <p className="text-sm text-gray-500">{room.room_type}</p>
                                 <div className="mt-2">
@@ -56,7 +57,8 @@ const FeaturedRooms = () => {
                                         <span className="font-semibold">Check-Out:</span> {room.checkOut}
                                     </p>
                                     <p>
-                                        <span className="font-semibold">Adults:</span> {room.adults}
+                                        <span className="font-semibold ">
+                                            Children: {room.adults} </span>
                                     </p>
                                     <p>
                                         <span className="font-semibold">Rooms:</span> {room.rooms}
@@ -88,10 +90,10 @@ const FeaturedRooms = () => {
                                         </span>
                                     </p>
                                 </div>
-                                <div className="card-actions justify-end mt-4">
+                                <div className="card-actions justify-center  mt-4">
                                     <Link
                                         to={`/roomsCard/${room._id}`}
-                                        className="btn btn-primary btn-sm"
+                                        className="btn bg-[#f3f9f2] hover:bg-[#f3f9f2] border-2 border-[#98d2d1] hover:border-yellow-400 btn-sm"
                                     >
                                         Book Now
                                     </Link>

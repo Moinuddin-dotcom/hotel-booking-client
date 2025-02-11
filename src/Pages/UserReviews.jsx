@@ -35,15 +35,15 @@ const UserReviews = ({ bookingId }) => {
 
 
     return (
-        <div className='text-center bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white'>
+        <div className='text-center '>
             <form onSubmit={handleReviewFrom}>
-                <div className="my-2 bg-[#20312B]">
-                    <label className='bg-[#20312B]'>Username:</label>
+                <div className="my-2 ">
+                    {/* <label className=''>Username:</label> */}
                     <input
                         type="text"
                         value={user?.displayName}
                         readOnly
-                        className="border text-center font-bold text-2xl p-2 rounded w-full bg-[#20312B]"
+                        className="border text-center font-bold text-2xl p-2 rounded w-full"
                     />
                 </div>
                 <div className="my-2 flex justify-center items-center gap-2">
@@ -57,7 +57,7 @@ const UserReviews = ({ bookingId }) => {
                     />
                 </div>
                 <div className="my-2">
-                    <label className='underline'>Place your review here:</label>
+                    {/* <label className='underline'>Place your review here:</label> */}
                     <textarea
                         className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                         value={review}
@@ -65,11 +65,12 @@ const UserReviews = ({ bookingId }) => {
                         name="review"
                         id="review"
                         rows="4"
+                        placeholder='Place your review here:'
                     />
                 </div>
                 <button
                     // onClick={handleSubmit}
-                    className="btn btn-primary">
+                    className="btn bg-[#f3f9f2] hover:bg-[#f3f9f2] border-2 border-[#98d2d1] hover:border-yellow-400 btn-sm">
                     Submit Review
                 </button>
             </form>

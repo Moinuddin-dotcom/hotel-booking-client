@@ -30,7 +30,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
 
     const updateStartDate = async () => {
         try {
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`,{ checkIn: startDate })
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, { checkIn: startDate })
             console.log("Update is done", data)
             toast.success('Date Updated successful')
         } catch (error) {
@@ -41,7 +41,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
     const updateEndDate = async () => {
         // console.log("Lets update start date")
         try {
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`,{ checkOut: endDate })
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, { checkOut: endDate })
 
             console.log("Update is done", data)
             toast.success('Date Updated successful')
@@ -54,10 +54,10 @@ const MyBookingTable = ({ table, handleDelete }) => {
 
 
     return (
-        <tr>
+        <tr className='border-b border-[#98d2d1]'>
             <th>
-                {/* {table.length} */}
                 <FaArrowRight />
+                {/* {idx + 1} */}
             </th>
             <td>
                 <div className="flex items-center gap-3">
@@ -72,7 +72,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
                         <div className="font-bold">{roomType}</div>
                         <div className="text-sm  flex justify-center items-center gap-2">
                             <div className='space-x-5'>
-                                <label className='text-white'> Check-In:</label>
+                                <label className='text-black'> Check-In:</label>
                                 <DatePicker
                                     className='border p-1 rounded-md text-black'
                                     selected={new Date(startDate)}
@@ -83,7 +83,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
                         </div>
                         <div className="text-sm  flex justify-center items-center gap-2">
                             <div className='space-x-5'>
-                                <label className='text-white'>Check-out:</label>
+                                <label className='text-black'>Check-out:</label>
                                 <DatePicker
                                     className='border p-1 rounded-md text-black'
                                     selected={new Date(endDate)}
@@ -96,25 +96,25 @@ const MyBookingTable = ({ table, handleDelete }) => {
                 </div>
             </td>
             <td>
+                <span className='text-black ml-2'>
 
-                {userName}
+                    {userName}
+                </span>
                 <br />
-                <span className="badge badge-ghost badge-sm"> {userEmail}</span>
+                <span className="badge badge-ghost badge-sm "> {userEmail}</span>
             </td>
-            <td>BDT:{price}/-</td>
+            <td className='text-black'>BDT:{price}/-</td>
             <td>
                 <button
                     onClick={() => document.getElementById('my_modal_2').showModal()}
-                    className="btn btn-sm bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white">Share your thougts</button>
+                    className="btn btn-sm border-2 border-[#98d2d1] hover:border-amber-400 rounded-lg bg-[#6bba5e0d] hover:bg-[#6bba5e0d]">Share your thougts</button>
             </td>
             <th>
 
-                <MdOutlineRemoveShoppingCart className='text-2xl hover:text-3xl text-white' onClick={() => handleDelete(_id)} />
+                <MdOutlineRemoveShoppingCart className='text-2xl hover:text-3xl text-red-500 cursor-pointer' onClick={() => handleDelete(_id)} />
 
             </th>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            {/* <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}>open modal</button> */}
-            <dialog id="my_modal_2" className="modal bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white">
+            <dialog id="my_modal_2" className="modal bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-black">
                 <div className="modal-box">
                     <UserReviews bookingId={_id} />
 

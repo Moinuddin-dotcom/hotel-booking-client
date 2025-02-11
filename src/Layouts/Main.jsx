@@ -5,14 +5,14 @@ import Footer from '../Components/Footer'
 
 const Main = () => {
     return (
-        <div className=' bg-gradient-to-r from-[#20312B] to-[#3A524B]'>
+        <div className=' bg-[#f3f9f2] text-black'>
             <nav>
                 <Navbar />
             </nav>
-            <main>
+            <main className='pt-[90px]'>
                 <Outlet />
             </main>
-             
+
             <footer>
                 <Footer />
             </footer>

@@ -53,14 +53,14 @@ const Rooms = () => {
                     <Loading />
                     :
                     <>
-                        <h1 className='text-center font-bold text-white text-4xl py-4'>See all available rooms: {rooms.length} </h1>
+                        <h1 className='text-center font-bold  text-4xl lg:text-5xl py-4'>See all available rooms: ({rooms.length}) </h1>
                         <div className='text-center'>
                             <select
                                 onChange={e => setSort(e.target.value)}
                                 value={sort}
                                 name='category'
                                 id='category'
-                                className='border p-4 rounded-md'
+                                className='border btn btn-wide bg-white hover:bg-white hover:border-2 hover:border-black rounded-md'
                             >
                                 <option value=''>Sort By Price</option>
                                 <option value='dsc'>Descending Order</option>

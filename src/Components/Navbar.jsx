@@ -9,21 +9,21 @@ const Navbar = () => {
     // console.log(user)
     const navLinks = <>
         <NavLink to={"/rooms"} className={({ isActive }) =>
-            isActive ? "underline underline-offset-4 text-white font-semibold" : "text-gray-500 hover:text-white font-semibold"
+            isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
         } >Rooms</NavLink>
         <NavLink to={"/my-bookings"} className={({ isActive }) =>
-            isActive ? "underline underline-offset-4 text-white font-semibold" : "text-gray-500 hover:text-white font-semibold"
+            isActive ? "underline underline-offset-4 text-[#98d2d1] font-semibold" : "text-black hover:text-[#98d2d1] font-semibold"
         }>My Bookings</NavLink>
     </>
     const logoLink = <>
-        <Link to={"/"} className="btn btn-ghost text-xl">
+        <Link to={"/"} className="btn btn-ghost text-xl bg-white hover:bg-white hover:border-yellow-400">
             <img className='w-10 rounded-full animate__animated animate__bounce' src={logo} alt="" />
             The Peninsula
         </Link>
     </>
 
     return (
-        <div className="navbar bg-[#20312B] text-white py-8">
+        <div className="navbar bg-[#f3f9f2]/55 text-black py-5 fixed z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -58,7 +58,7 @@ const Navbar = () => {
                 {
                     user ?
                         <div>
-                            <Link onClick={logOut} className="btn  bg-gradient-to-t from-[#20312B] to-[#ced8d1] text-white ">Log Out</Link>
+                            <Link onClick={logOut} className="btn border-2 border-[#98d2d1] hover:border-yellow-400 bg-white hover:bg-black text-black hover:text-white ">Log Out</Link>
 
                         </div>
                         :

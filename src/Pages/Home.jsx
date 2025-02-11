@@ -5,6 +5,8 @@ import FeaturedRooms from './FeaturedRooms'
 import UserReviews from './UserReviews'
 import { Helmet } from 'react-helmet'
 import SpecialOffersModal from './SpecialOffersModal'
+import About from './About'
+import SpaNwellness from './SpaNwellness'
 
 const Home = () => {
     return (
@@ -12,10 +14,10 @@ const Home = () => {
             <Helmet>
                 <title>Home | The Peninsula</title>
             </Helmet>
-            <header>
+            <header >
                 <Slider />
             </header>
-            <section>
+            <section className='bg-[#f3f9f2]'>
                 <Map />
             </section>
             <section>
@@ -24,6 +26,14 @@ const Home = () => {
             <section>
                 <FeaturedRooms />
             </section>
+            <section>
+                <About />
+          
+            </section>
+            <section>
+                <SpaNwellness />
+            </section>
+
         </div>
     )
 }

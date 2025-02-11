@@ -57,22 +57,21 @@ const MyBookings = () => {
             <Helmet>
                 <title>My Bookings | The Peninsula</title>
             </Helmet>
-            <div className="max-w-[90vw] mx-auto overflow-x-auto text-white py-20">
+            <div className="max-w-[90vw] mx-auto mb-10 overflow-x-auto text-black pb-20 border-2 border-[#98d2d1] rounded-lg bg-[#6bba5e0d]">
+                <h1 className='text-center font-semibold text-5xl pt-5 pb-10'>My Bookings</h1>
                 <table className="table">
                     {/* head */}
-                    <thead className='text-white'>
+                    <thead className='text-black border-b-2 border-[#98d2d1]'>
                         <tr>
                             <th>SL </th>
                             <th>Hotel Details</th>
                             <th>My Profile</th>
                             <th>Price</th>
                             <th>Review </th>
-                            {/* <th>Update</th> */}
                             <th>Delete</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {/* row 1 */}
+                    <tbody >
                         {
                             loginUserBookingRoom.map(table =>
                                 <MyBookingTable key={table._id}

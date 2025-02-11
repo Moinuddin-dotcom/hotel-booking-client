@@ -22,7 +22,7 @@ const SpecialOffersModal = () => {
             overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
             ariaHideApp={false}
         >
-            <div className="relative bg-white rounded-lg shadow-lg w-full max-w-lg p-6 z-60">
+            <div className="relative bg-white rounded-lg w-full max-w-lg p-6 z-60">
 
                 <button
                     onClick={closeModal}

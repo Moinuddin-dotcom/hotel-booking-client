@@ -26,7 +26,7 @@ const Rooms = () => {
         try {
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms?sort=${sort}`)
             setRooms(data)
-            console.log(data)
+            // console.log(data)
         } catch (error) {
             toast.error('Data cant load at this moment', error)
         } finally {
@@ -71,9 +71,9 @@ const Rooms = () => {
                         <main className='max-w-[80vw] lg:max-w-[95vw] xl:max-w-[80vw] mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 py-5' data-aos="fade-up-right" data-aos-once="false">
                             {
                                 rooms.map(room =>
-                                    <Link to={`/roomsCard/${room._id}`} key={room._id} className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden border" >
+                                    <Link to={`/roomsCard/${room._id}`} key={room._id} className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden border dark:bg-black" >
                                         <img className='w-96 h-60' src={room.image} alt="" />
-                                        <div className='bg-white px-4 '>
+                                        <div className='bg-white px-4 dark:bg-black'>
                                             <h1 className='text-xl font-semibold text-center my-3'>{room.room_type}</h1>
                                             <div className="divider"></div>
                                             <p className='p-1'>Number of room: <strong className='text-green-500'>{room.roomsLeft}</strong>

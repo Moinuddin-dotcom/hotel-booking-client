@@ -11,7 +11,7 @@ const MyBookings = () => {
     const [loginUserBookingRoom, setLoginUserBookingRoom] = useState([])
     const fetchBookingRoom = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/bookedHotel/${user?.email}`, { withCredentials: true });
-        console.log(data)
+        // console.log(data)
         setLoginUserBookingRoom(data)
 
     }
@@ -21,7 +21,7 @@ const MyBookings = () => {
     }, [])
 
     const handleDelete = async (id) => {
-        console.log("Lets delete card", id)
+        // console.log("Lets delete card", id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -33,7 +33,7 @@ const MyBookings = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/bookedHotel/${id}`)
-                console.log("Delete is done", data)
+                // console.log("Delete is done", data)
                 if (data.deletedCount > 0) {
                     const remaining = loginUserBookingRoom.filter(remain => remain._id !== id)
                     setLoginUserBookingRoom(remaining)
@@ -58,11 +58,11 @@ const MyBookings = () => {
             <Helmet>
                 <title>My Bookings | The Peninsula</title>
             </Helmet>
-            <div className="max-w-[90vw] mx-auto mb-10 overflow-x-auto text-black pb-20 border-2 border-[#98d2d1] rounded-lg bg-[#6bba5e0d]">
+            <div className="max-w-[90vw] mx-auto mb-10 overflow-x-auto text-black pb-20 border-2 border-[#98d2d1] rounded-lg bg-[#6bba5e0d] dark:bg-black dark:text-white">
                 <h1 className='text-center font-semibold text-5xl pt-5 pb-10'>My Bookings</h1>
                 <table className="table">
                     {/* head */}
-                    {(loginUserBookingRoom.length > 0) && <thead className='text-black border-b-2 border-[#98d2d1]'>
+                    {(loginUserBookingRoom.length > 0) && <thead className='text-black border-b-2 border-[#98d2d1] dark:text-white'>
                         <tr>
                             <th>SL </th>
                             <th>Hotel Details</th>

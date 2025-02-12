@@ -33,7 +33,7 @@ const Register = () => {
         }
         // password validation end
         const reg = { name, photo, email, password }
-        console.log(reg)
+        // console.log(reg)
         newUser(email, password)
             .then(async (result) => {
                 const user = result.user
@@ -42,10 +42,10 @@ const Register = () => {
                 navigate('/login')
                 const newReg = { name, photo, email }
                 const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/users`, newReg)
-                console.log(data)
+                // console.log(data)
             })
             .catch(error => {
-                console.log("Error creating user", error.message)
+                // console.log("Error creating user", error.message)
                 toast.error('User already registered')
             })
     }
@@ -56,7 +56,7 @@ const Register = () => {
                 navigate(from, { replace: true })
             })
             .catch((error) => {
-                console.log("ERROR", error)
+                // console.log("ERROR", error)
                 setUser(null);
             })
     }
@@ -64,11 +64,11 @@ const Register = () => {
 
 
     return (
-        <div>
+        <div className='h-screen my-10 '>
             <Helmet>
                 <title>Register | The Peninsula</title>
             </Helmet>
-            <div className='max-w-[40vw] mx-auto bg-green-800'>
+            <div className='max-w-[40vw] mx-auto h-screen rounded-lg shadow-xl shadow-black dark:shadow-lg dark:shadow-yellow-800 '>
                 <div className="googleLogin text-center pt-5">
                     <button
                         onClick={handleGoolge}
@@ -80,25 +80,25 @@ const Register = () => {
                 <form onSubmit={handleRegisterFrom} className="card-body py-2">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">Name</span>
+                            <span className="label-text text-black dark:text-white font-semibold">Name</span>
                         </label>
                         <input type="text" name='name' placeholder="name" className="input input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">PhotoURL</span>
+                            <span className="label-text text-black dark:text-white font-semibold">PhotoURL</span>
                         </label>
                         <input type="text" name='photo' placeholder="PhotoURL" className="input input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">Email</span>
+                            <span className="label-text text-black dark:text-white font-semibold">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="email" className="input input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">Password</span>
+                            <span className="label-text text-black dark:text-white font-semibold">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
 

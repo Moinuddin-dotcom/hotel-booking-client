@@ -25,7 +25,7 @@ const Reviews = () => {
     const reviewsData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/reviews`)
         setReviews(data)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const Reviews = () => {
 
     return (
         <div className=' md:max-w-[60vw] mx-auto my-20'>
-            <h1 className='text-center font-semibold text-5xl my-10'>Users reviews</h1>
+            <h1 className='text-center font-semibold text-2xl lg:text-5xl my-10'>Users reviews</h1>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

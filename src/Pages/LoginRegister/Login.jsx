@@ -24,7 +24,7 @@ const Login = () => {
             setUser(result?.user)
             navigate(from, { replace: true })
         } catch (error) {
-            console.log("ERROR", error)
+            // console.log("ERROR", error)
             setUser(null);
         }
     }
@@ -73,7 +73,7 @@ const Login = () => {
             <Helmet>
                 <title>Log In | The Peninsula</title>
             </Helmet>
-            <div className='max-w-[40vw] mx-auto bg-green-800'>
+            <div className='max-w-[40vw] mx-auto'>
                 <div className="googleLogin text-center pt-5">
                     <button
                         onClick={handleGoolge}
@@ -83,35 +83,19 @@ const Login = () => {
                 </div>
                 <div className="divider divider-primary my-2 mx-10">OR</div>
                 <form onSubmit={handleLogin} className="card-body py-2">
-                    {/* <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white font-semibold">Name</span>
-                        </label>
-                        <input type="text" name='name' placeholder="name" className="input input-bordered text-black" required />
-                    </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">PhotoURL</span>
-                        </label>
-                        <input type="text" name='photo' placeholder="PhotoURL" className="input input-bordered text-black" required />
-                    </div> */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white font-semibold">Email</span>
+                            <span className="label-text text-black dark:text-white font-semibold">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="email" className="input input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white font-semibold">Password</span>
+                            <span className="label-text dark:text-white font-semibold">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
 
                     </div>
-                    {/* {
-                      error.password &&
-                      <p className="text-red-500 text-xs">{error.password}</p>
-                    } */}
                     <div className="form-control mt-6">
                         <button className="btn bg-gradient-to-r from-[#0C5776] to-[#001C44] text-white">Log In</button>
                     </div>

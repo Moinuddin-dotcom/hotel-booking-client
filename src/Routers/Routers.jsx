@@ -10,6 +10,7 @@ import SecureRouter from './SecureRouter'
 import RoomsCard from '../Components/RoomsCard'
 import ErrorPage from '../Pages/ErrorPage'
 import Gallery from '../Components/Gallery/Gallery'
+import MeetingEvents from '../Components/MeetingEvents/MeetingEvents'
 
 const Routers = createBrowserRouter([
     {
@@ -45,6 +46,13 @@ const Routers = createBrowserRouter([
                 element:
                     <SecureRouter>
                         <Gallery />
+                    </SecureRouter>,
+            },
+            {
+                path: '/meetingEvents',
+                element:
+                    <SecureRouter>
+                        <MeetingEvents />
                     </SecureRouter>,
             },
             {

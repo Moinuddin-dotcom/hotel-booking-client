@@ -31,7 +31,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
     const updateStartDate = async () => {
         try {
             const { data } = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, { checkIn: startDate })
-            console.log("Update is done", data)
+            // console.log("Update is done", data)
             toast.success('Date Updated successful')
         } catch (error) {
             toast.error('Update not possible', error)
@@ -43,7 +43,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
         try {
             const { data } = await axios(`${import.meta.env.VITE_API_URL}/bookedHotel/${_id}`, { checkOut: endDate })
 
-            console.log("Update is done", data)
+            // console.log("Update is done", data)
             toast.success('Date Updated successful')
         } catch (error) {
             toast.error('Update not possible', error)
@@ -72,7 +72,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
                         <div className="font-bold">{roomType}</div>
                         <div className="text-sm  flex justify-center items-center gap-2">
                             <div className='space-x-5'>
-                                <label className='text-black'> Check-In:</label>
+                                <label className='text-black dark:text-white'> Check-In:</label>
                                 <DatePicker
                                     className='border p-1 rounded-md text-black'
                                     selected={new Date(startDate)}
@@ -83,7 +83,7 @@ const MyBookingTable = ({ table, handleDelete }) => {
                         </div>
                         <div className="text-sm  flex justify-center items-center gap-2">
                             <div className='space-x-5'>
-                                <label className='text-black'>Check-out:</label>
+                                <label className='text-black dark:text-white'>Check-out:</label>
                                 <DatePicker
                                     className='border p-1 rounded-md text-black'
                                     selected={new Date(endDate)}
@@ -96,18 +96,18 @@ const MyBookingTable = ({ table, handleDelete }) => {
                 </div>
             </td>
             <td>
-                <span className='text-black ml-2'>
+                <span className='text-black ml-2 dark:text-white'>
 
                     {userName}
                 </span>
                 <br />
                 <span className="badge badge-ghost badge-sm "> {userEmail}</span>
             </td>
-            <td className='text-black'>BDT:{price}/-</td>
+            <td className='text-black dark:text-white'>BDT:{price}/-</td>
             <td>
                 <button
                     onClick={() => document.getElementById('my_modal_2').showModal()}
-                    className="btn btn-sm border-2 border-[#98d2d1] hover:border-amber-400 rounded-lg bg-[#6bba5e0d] hover:bg-[#6bba5e0d]">Share your thougts</button>
+                    className="btn btn-sm border-2 border-[#98d2d1] hover:border-amber-400 rounded-lg bg-[#6bba5e0d] hover:bg-[#6bba5e0d] dark:bg-black dark:text-white">Share your thougts</button>
             </td>
             <th>
 

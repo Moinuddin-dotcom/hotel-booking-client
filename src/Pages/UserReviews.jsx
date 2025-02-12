@@ -24,10 +24,10 @@ const UserReviews = ({ bookingId }) => {
         const timestamp = new Date().toISOString()
         const dataFile = { bookingId, userName, userEmail, userPhoto, rating: userRating, review: userReview, timestamp };
 
-        console.log(dataFile);
+        // console.log(dataFile);
 
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/reviews`, dataFile)
-        console.log(data)
+        // console.log(data)
         document.getElementById('my_modal_2').close()
 
 

@@ -26,7 +26,7 @@ const RoomsCard = () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/rooms/${id}`)
         setRooms(data)
         setSoldRoom(data.roomsLeft)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {
@@ -54,7 +54,7 @@ const RoomsCard = () => {
         const userEmail = user?.email
 
         const modalData = { roomId, rommImage, roomType, checkIn, checkOut, price, userName, userEmail }
-        console.log(modalData)
+        // console.log(modalData)
         document.getElementById('my_modal_5').close();
 
         // Check if room is available

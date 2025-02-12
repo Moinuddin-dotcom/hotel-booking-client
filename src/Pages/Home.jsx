@@ -19,7 +19,7 @@ const Home = () => {
             <header >
                 <Slider />
             </header>
-            <section className='bg-[#f3f9f2]'>
+            <section className='bg-[#f3f9f2] dark:bg-gray-900 dark:text-white'>
                 <Map />
             </section>
             <section>

@@ -18,17 +18,17 @@ const Map = () => {
 
   const position = [51.505, -0.09]
   return (
-    <div className='text-center max-w-[80vw] mx-auto  my-10 '>
-      <h1 className='text-5xl font-bold py-5 ' data-aos="fade-up" data-aos-once="false">Find Our Location</h1>
+    <div className='text-center max-w-[80vw] mx-auto  my-10 dark:bg-gray-900 dark:text-white'>
+      <h1 className='text-2xl lg:text-5xl font-bold py-5 ' data-aos="fade-up" data-aos-once="false">Find Our Location</h1>
       <div className="mapBox grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="locationInfo pt-28 font-semibold text-lg">
-          <p className='text-start text-stone-700 text-base' data-aos="fade-left" data-aos-once="false">
+        <div className="locationInfo md:pt-28 lg:pt-28 font-semibold text-lg">
+          <p className='text-start text-stone-700 text-base dark:bg-gray-900 dark:text-white' data-aos="fade-up" data-aos-once="false">
             We are located at the heart of London, just 10 minutes away from the train station.
             The nearest train station is the Tower Bridge, and the train travels at an average speed of 100 km/h.
           </p>
         </div>
         <div className='map'>
-          <div className="max-w-[50vw] h-[400px]  flex flex-col items-center justify-center p-4">
+          <div className="lg:max-w-[50vw] h-[400px]  flex flex-col items-center justify-center lg:p-4">
             <div className="h-full w-full rounded-lg overflow-hidden shadow-md">
               <MapContainer
                 center={position}

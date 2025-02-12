@@ -27,7 +27,7 @@ const FeaturedRooms = () => {
     return (
         <div className='text-center'>
             {/* <div className="divider bg-black"></div> */}
-            <h1 className='text-4xl py-5 text-black lg:text-5xl font-bold' data-aos="fade-up" data-aos-once="false">Top Rated Rooms</h1>
+            <h1 className='text-4xl py-5 text-black lg:text-5xl font-bold dark:bg-gray-900 dark:text-white' data-aos="fade-up" data-aos-once="false">Top Rated Rooms</h1>
             <div className='max-w-[90vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 my-5'>
                 {
                     rooms.splice(0, 6).map(room =>
@@ -48,7 +48,7 @@ const FeaturedRooms = () => {
                             <div className="card-body">
                                 <h2 className="text-xl font-bold text-center relative"> <div>{room.package_name}</div> <div className="badge badge-secondary absolute -right-6 bottom-1 ">Top Rated</div></h2>
 
-                                <p className="text-sm text-gray-500">{room.room_type}</p>
+                                <p className="text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{room.room_type}</p>
                                 <div className="mt-2">
                                     <p>
                                         <span className="font-semibold">Check-In:</span> {room.checkIn}
